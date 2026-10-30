@@ -1,0 +1,11 @@
+source_row,transaction_id,order_date,customer,region,product,quantity,amount,issue_flags
+6,SA-1005,05/06/2026,Tshwane Office,Gauteng,Furniture,1,4500.00,duplicate_transaction_id
+7,SA-1005,05/06/2026,Tshwane Office,Gauteng,Furniture,1,4500.00,duplicate_transaction_id
+9,SA-1008,not recorded,Kopano Retail,Gauteng,Stationery,2,R 180.00,invalid_order_date
+10,SA-1009,08/06/2026,,Limpopo,Office Supplies,5,"R 2,750.00",missing_customer
+11,SA-1010,09/06/2026,Marula Market,Limpopo,Stationery,two,R 225.00,invalid_quantity
+12,SA-1011,10/06/2026,Ndlovu Traders,Gauteng,Office Supplies,2,unknown,invalid_amount
+13,SA-1012,11/06/2026,Kopano Retail,Gauteng,Stationery,0,R 150.00,invalid_quantity
+15,,13/06/2026,Marula Market,Limpopo,Office Supplies,2,R 460.00,missing_transaction_id
+16,SA-1015,14/06/2026,Tshwane Office,Gauteng,Stationery,3,-100.00,invalid_amount
+18,SA-1017,16/06/2026,Mzansi Stationers,Free State,Stationery,2,R 290.00,unmapped_region

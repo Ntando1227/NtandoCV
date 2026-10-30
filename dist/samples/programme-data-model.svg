@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">Programme tracking data model</title>
+  <desc id="desc">A demonstration relational model connecting schools, learners, workshops, champions and attendance.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f7f5f0}.card{fill:#fff;stroke:#d9d4ca;stroke-width:2}.head{fill:#263b36}.headText{fill:#fff;font:600 19px Arial,sans-serif}.body{fill:#39413e;font:15px Arial,sans-serif}.key{fill:#8a543f;font-weight:700}.line{stroke:#a8866d;stroke-width:2.5;fill:none}.label{fill:#6f716d;font:13px Arial,sans-serif}
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="900" height="430" rx="22"/>
+  <path class="line" d="M220 190 H295 M415 190 H485 M620 190 H680 M360 260 V315 H540 V260"/>
+  <text class="label" x="248" y="178">1 to many</text>
+  <text class="label" x="435" y="178">1 to many</text>
+  <text class="label" x="635" y="178">1 to many</text>
+  <text class="label" x="424" y="303">records participation</text>
+  <g transform="translate(40 120)"><rect class="card" width="180" height="140" rx="14"/><path class="head" d="M14 0h152a14 14 0 0 1 14 14v34H0V14A14 14 0 0 1 14 0z"/><text class="headText" x="20" y="31">School</text><text class="body key" x="20" y="76">school_id</text><text class="body" x="20" y="102">name</text><text class="body" x="20" y="126">region</text></g>
+  <g transform="translate(295 120)"><rect class="card" width="180" height="140" rx="14"/><path class="head" d="M14 0h152a14 14 0 0 1 14 14v34H0V14A14 14 0 0 1 14 0z"/><text class="headText" x="20" y="31">Learner</text><text class="body key" x="20" y="76">learner_id</text><text class="body" x="20" y="102">school_id</text><text class="body" x="20" y="126">grade</text></g>
+  <g transform="translate(485 120)"><rect class="card" width="180" height="140" rx="14"/><path class="head" d="M14 0h152a14 14 0 0 1 14 14v34H0V14A14 14 0 0 1 14 0z"/><text class="headText" x="20" y="31">Workshop</text><text class="body key" x="20" y="76">workshop_id</text><text class="body" x="20" y="102">school_id</text><text class="body" x="20" y="126">workshop_date</text></g>
+  <g transform="translate(680 120)"><rect class="card" width="180" height="140" rx="14"/><path class="head" d="M14 0h152a14 14 0 0 1 14 14v34H0V14A14 14 0 0 1 14 0z"/><text class="headText" x="20" y="31">Champion</text><text class="body key" x="20" y="76">champion_id</text><text class="body" x="20" y="102">name</text><text class="body" x="20" y="126">region</text></g>
+  <g transform="translate(360 315)"><rect class="card" width="180" height="95" rx="14"/><path class="head" d="M14 0h152a14 14 0 0 1 14 14v34H0V14A14 14 0 0 1 14 0z"/><text class="headText" x="20" y="31">Attendance</text><text class="body key" x="20" y="75">learner_id + workshop_id</text></g>
+</svg>

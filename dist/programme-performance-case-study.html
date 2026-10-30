@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5f0">
+  <meta name="description" content="An integrated programme performance and business intelligence case study by Ntando Mthimkulu, combining financial control, data modelling and decision reporting.">
+  <title>Programme Performance Case Study | Ntando Mthimkulu</title>
+  <style>
+    :root{--paper:#f7f5f0;--white:#fff;--ink:#202724;--muted:#65706a;--line:#dcded8;--green:#263b36;--green2:#37544b;--clay:#a65e43;--pale:#e9eee8;--sand:#eee8dc;--shadow:0 16px 44px rgba(33,44,39,.07);--max:1120px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 Inter,Arial,sans-serif}
+    a{color:inherit}
+    a:focus-visible{outline:3px solid #d18c65;outline-offset:4px}
+    .wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:3;background:rgba(247,245,240,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{color:var(--green);font-weight:750;text-decoration:none}
+    .nav-link{color:var(--muted);font-size:13px;text-decoration:none}
+    .nav-link:hover{color:var(--green)}
+    .button{display:inline-flex;align-items:center;justify-content:center;padding:11px 15px;border:1px solid #a9b3ac;border-radius:5px;background:transparent;color:var(--green);text-decoration:none;font-size:12px;font-weight:750}
+    .button.primary{background:var(--green);border-color:var(--green);color:#fff}
+    .button:hover{background:var(--green2);border-color:var(--green2);color:#fff}
+    .hero{padding:76px 0 48px;background:linear-gradient(135deg,#f7f5f0 0%,#eef1eb 100%);border-bottom:1px solid var(--line)}
+    .eyebrow,.kicker{color:var(--clay);font-size:10px;text-transform:uppercase;letter-spacing:.15em;font-weight:800;margin:0 0 12px}
+    h1{max-width:840px;margin:0;color:var(--green);font:400 clamp(38px,6vw,66px)/1.02 Georgia,serif;letter-spacing:-.035em}
+    .hero-copy{max-width:760px;color:#59645e;font-size:17px;margin:17px 0 20px}
+    .context{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}
+    .context span{background:#fff;border:1px solid #d8ded8;border-radius:3px;padding:7px 10px;color:#45524b;font-size:11px;font-weight:700}
+    .sample-note{max-width:860px;margin:20px 0 0;padding:12px 15px;background:#fff;border-left:3px solid var(--clay);color:#59645e;font-size:12px}
+    main{padding:50px 0 82px}
+    section{margin:0 0 56px;scroll-margin-top:86px}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:20px}
+    .section-head h2{font:400 clamp(26px,3vw,38px)/1.1 Georgia,serif;color:var(--green);margin:0}
+    .section-head p{max-width:530px;margin:0;color:var(--muted);font-size:13px}
+    .dashboard{background:#fff;border:1px solid var(--line);border-radius:7px;box-shadow:var(--shadow);overflow:hidden}
+    .dashboard-head{display:flex;justify-content:space-between;align-items:start;gap:20px;padding:18px 22px;border-bottom:1px solid var(--line)}
+    .dashboard-head h3{font:400 22px Georgia,serif;color:var(--green);margin:0 0 3px}
+    .dashboard-head p{font-size:11px;color:var(--muted);margin:0}
+    .asof{color:#65706a;font-size:10px;text-align:right;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-bottom:1px solid var(--line)}
+    .metric{padding:17px 16px;border-right:1px solid var(--line)}
+    .metric:last-child{border:0}
+    .metric span{display:block;color:#738077;font-size:9px;line-height:1.35;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+    .metric strong{display:block;color:var(--green);font:400 clamp(17px,2.1vw,23px) Georgia,serif;margin-top:7px;white-space:nowrap}
+    .metric small{display:block;color:var(--muted);font-size:9px;margin-top:4px}
+    .dashboard-body{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;padding:22px}
+    .subhead{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#647269;font-weight:800;margin:0 0 13px}
+    .budget-line{display:grid;grid-template-columns:95px minmax(80px,1fr) 76px;align-items:center;gap:10px;margin:11px 0}
+    .budget-line b{font-size:11px;color:#35483e}
+    .budget-line .track{height:8px;background:#edf0eb;border-radius:10px;overflow:hidden}
+    .budget-line .fill{height:100%;background:var(--green2);border-radius:10px}
+    .budget-line strong{font-size:10px;text-align:right;color:#4d5a52}
+    .chart-key{display:flex;gap:15px;margin-top:14px;color:#6a756d;font-size:9px}
+    .chart-key span{display:inline-flex;align-items:center;gap:6px}
+    .chart-key i{width:8px;height:8px;border-radius:50%;background:var(--green2)}
+    .chart-key .budget-key{background:#cdd6cf}
+    .metric-note{padding:13px 14px;background:#f4f6f2;border-left:2px solid var(--clay);color:#56625a;font-size:11px;margin-top:14px}
+    .scenario-panel{display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:18px;padding:19px 22px;background:#f4f6f2;border-bottom:1px solid var(--line)}
+    .scenario-intro{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+    .scenario-intro h4{margin:0;color:var(--green);font:400 19px Georgia,serif}
+    .scenario-intro p{margin:0;color:var(--muted);font-size:10px}
+    .scenario-control{padding:13px;background:#fff;border:1px solid var(--line);border-radius:4px}
+    .scenario-label{display:flex;justify-content:space-between;gap:10px;color:#49574f;font-size:10px;font-weight:800}
+    .scenario-label output{color:var(--green);font-size:12px}
+    .scenario-control input{display:block;width:100%;margin:13px 0 8px;accent-color:var(--green2)}
+    .scenario-control small{display:block;color:#707b73;font-size:9px;line-height:1.45}
+    .scenario-decision{padding:13px 15px;background:#fff;border-left:3px solid var(--clay);border-radius:2px}
+    .scenario-decision .report-meta{margin:0 0 6px}
+    .scenario-decision strong{display:block;color:var(--green);font:400 16px/1.35 Georgia,serif}
+    .scenario-decision p:last-child{margin:6px 0 0;color:#59645e;font-size:10px;line-height:1.5}
+    .decision-use{padding:12px 15px;background:#edf1eb;color:#526057;font-size:10px;line-height:1.5}
+    .table-wrap{overflow-x:auto;border:1px solid #e4e7e1;border-radius:4px}
+    table{width:100%;border-collapse:collapse;min-width:650px;background:#fff;font-size:10px}
+    th,td{padding:9px 8px;text-align:right;border-bottom:1px solid #eceee9;white-space:nowrap}
+    th{background:#f6f7f4;color:#6a756d;text-transform:uppercase;letter-spacing:.06em;font-size:8px}
+    th:first-child,td:first-child{text-align:left}
+    tbody tr:last-child td{border-bottom:0;font-weight:800;color:var(--green);background:#f7f8f6}
+    .caption{color:#707b73;font-size:10px;margin:8px 0 0}
+    .relationship-list{display:grid;gap:10px}
+    .relationship{display:grid;grid-template-columns:minmax(140px,1fr) minmax(120px,.7fr) minmax(180px,1fr);gap:12px;align-items:center;padding:13px 15px;background:#fff;border:1px solid var(--line);border-radius:5px}
+    .entity{padding:8px 10px;background:#edf1eb;border-left:2px solid var(--green2);border-radius:2px}
+    .entity b{display:block;color:var(--green);font-size:10px;text-transform:uppercase;letter-spacing:.07em}
+    .entity small{display:block;margin-top:3px;color:#667269;font:9px ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere}
+    .relation{text-align:center;color:#8a5a43;font-size:10px;font-weight:750}
+    .model-note{margin:15px 0 0;color:#5d6861;font-size:12px}
+    .decision-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:stretch}
+    .decision-card,.report-card{background:#fff;border:1px solid var(--line);border-radius:6px;padding:22px}
+    .decision-card h3,.report-card h3{font:400 21px Georgia,serif;color:var(--green);margin:0 0 11px}
+    .decision-card p,.report-card p{color:#5c6860;font-size:12px;margin:0 0 11px}
+    .decision-list{margin:12px 0 0;padding-left:17px;color:#48554d;font-size:11px}
+    .decision-list li{margin:7px 0}
+    .report-card{background:#f4f5f1;border-left:3px solid var(--clay)}
+    .report-meta{color:#79837c;font-size:9px;text-transform:uppercase;letter-spacing:.09em;font-weight:800;margin-bottom:10px}
+    .report-card blockquote{margin:0;color:#34453c;font:16px/1.55 Georgia,serif}
+    .formula-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .formula{padding:14px;background:#fff;border:1px solid var(--line);border-radius:4px}
+    .formula b{display:block;color:#6b766e;font-size:9px;text-transform:uppercase;letter-spacing:.08em}
+    .formula code{display:block;margin:8px 0;color:var(--green);font:12px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere}
+    .formula small{color:#69746c;font-size:10px;line-height:1.45}
+    .next-step{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 22px;background:var(--green);border-radius:6px;color:#fff}
+    .next-step h2{font:400 23px Georgia,serif;margin:0 0 4px}
+    .next-step p{margin:0;color:#d7dfd8;font-size:12px}
+    .next-step .button{background:#fff;color:var(--green);border-color:#fff;white-space:nowrap}
+    footer{padding:22px 0;background:#1d2d28;color:#b9c5bd;font-size:11px}
+    footer .wrap{display:flex;justify-content:space-between;gap:15px}
+    @media(max-width:850px){.metrics{grid-template-columns:repeat(3,1fr)}.metric:nth-child(3){border-right:0}.metric:nth-child(n+4){border-top:1px solid var(--line)}.dashboard-body,.decision-grid{grid-template-columns:1fr}.scenario-panel{grid-template-columns:1fr 1fr}.scenario-decision{grid-column:1/-1}.formula-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.wrap{width:calc(100% - 28px)}.nav{min-height:60px}.hero{padding:48px 0 34px}.hero-copy{font-size:15px}.section-head{display:block}.section-head p{margin-top:9px}.metrics{grid-template-columns:repeat(2,1fr)}.metric:nth-child(2n){border-right:0}.metric:nth-child(n+3){border-top:1px solid var(--line)}.metric:nth-child(3){border-right:1px solid var(--line)}.dashboard-head{display:block}.asof{text-align:left;margin-top:9px}.dashboard-body{padding:15px}.scenario-panel{grid-template-columns:1fr;padding:15px}.scenario-intro{display:block}.scenario-intro p{margin-top:4px}.scenario-decision{grid-column:auto}.budget-line{grid-template-columns:80px minmax(30px,1fr) 88px}.budget-line strong{font-size:9px}.relationship{grid-template-columns:1fr;gap:6px}.relation{text-align:left;padding-left:8px}.formula-grid{grid-template-columns:1fr}.next-step{display:block}.next-step .button{margin-top:14px;width:100%}footer .wrap{flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html#top">Ntando Mthimkulu</a><a class="nav-link" href="index.html#work">Back to all work samples</a></div></header>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Integrated programme performance case study</p>
+      <h1>From programme data to decisions.</h1>
+      <p class="hero-copy">One end to end example of how I connect programme delivery, financial control, data modelling and clear reporting to support project decisions.</p>
+      <div class="context"><span>Annual programme budget: R3 million</span><span>Total managed: R9 million over three years</span><span>Focus: Business Intelligence</span></div>
+      <p class="sample-note"><b>Illustrative case data.</b> My programme management experience involved an annual budget of R3 million over three years, R9 million in total. The dashboard below is a separate synthetic R5 million scenario. Its category allocations, actuals, forecasts and decision note are illustrative, not programme results. No learner, school or transaction records are shown.</p>
+    </div>
+  </section>
+  <main class="wrap">
+    <section id="dashboard">
+      <div class="section-head"><div><p class="kicker">01 · Performance dashboard</p><h2>Connect delivery and financial performance.</h2></div><p>The dashboard separates approved budget, eligible actuals and forecast costs. The estimate at completion combines spend to date with the remaining delivery plan.</p></div>
+      <div class="dashboard">
+        <div class="dashboard-head"><div><h3>Programme forecast overview</h3><p>Illustrative scenario · South African rand</p></div><div class="asof">Sample cut off<br>30 September · illustrative period</div></div>
+        <div class="metrics">
+          <div class="metric"><span>Illustrative scenario budget</span><strong>R5.00m</strong><small>Separate synthetic example</small></div>
+          <div class="metric"><span>Actuals to cut off</span><strong id="actual-total">R3.15m</strong><small>Eligible sample transactions</small></div>
+          <div class="metric"><span>Forecast to complete</span><strong id="forecast-total">R1.53m</strong><small>Remaining planned delivery</small></div>
+          <div class="metric"><span>Estimate at completion</span><strong id="eac-total">R4.68m</strong><small>Actuals plus forecast</small></div>
+          <div class="metric"><span>Forecast variance</span><strong id="variance-total">R320k under</strong><small id="variance-caption">Below budget in this scenario</small></div>
+        </div>
+        <div class="scenario-panel" aria-label="Interactive forecast assumptions">
+          <div class="scenario-intro"><h4>Test the remaining delivery plan</h4><p>Illustrative assumptions only · actuals and approved budget stay fixed</p></div>
+          <div class="scenario-control"><label class="scenario-label" for="delivery-volume">Remaining delivery pace <output id="delivery-output" for="delivery-volume">100%</output></label><input id="delivery-volume" type="range" min="75" max="125" step="5" value="100" aria-describedby="delivery-help"><small id="delivery-help">Uses remaining activity volume as a proxy to scale the variable portion of forecast costs. Test a faster, slower or reduced plan.</small></div>
+          <div class="scenario-control"><label class="scenario-label" for="unit-cost-index">Unit cost index <output id="unit-cost-output" for="unit-cost-index">100%</output></label><input id="unit-cost-index" type="range" min="85" max="120" step="5" value="100" aria-describedby="unit-cost-help"><small id="unit-cost-help">Adjusts variable costs for price pressure or savings against the baseline plan.</small></div>
+          <div class="scenario-decision" aria-live="polite"><p class="report-meta">Decision support</p><strong id="scenario-headline">Base plan: forecast remains within budget.</strong><p id="scenario-advice">Check outstanding commitments and remaining activity volumes before treating the projected balance as available.</p></div>
+          <div class="decision-use"><b>How to use this view:</b> the top line tests affordability, the category table points to where to review costs, and the controls help compare delivery and price assumptions before changing scope or approving a reallocation.</div>
+        </div>
+        <div class="dashboard-body">
+          <div>
+            <p class="subhead">Forecast use of category budget</p>
+            <div class="budget-line"><b>Training</b><div class="track" role="img" aria-label="Training estimate against budget"><div class="fill" id="bar-training" style="width:90%"></div></div><strong id="label-training">R810k / R900k</strong></div>
+            <div class="budget-line"><b>Transport</b><div class="track" role="img" aria-label="Transport estimate against budget"><div class="fill" id="bar-transport" style="width:94.5%"></div></div><strong id="label-transport">R520k / R550k</strong></div>
+            <div class="budget-line"><b>Materials</b><div class="track" role="img" aria-label="Materials estimate against budget"><div class="fill" id="bar-materials" style="width:95.6%"></div></div><strong id="label-materials">R430k / R450k</strong></div>
+            <div class="budget-line"><b>Events</b><div class="track" role="img" aria-label="Events estimate against budget"><div class="fill" id="bar-events" style="width:90.9%"></div></div><strong id="label-events">R1.00m / R1.10m</strong></div>
+            <div class="budget-line"><b>Facilitation</b><div class="track" role="img" aria-label="Facilitation estimate against budget"><div class="fill" id="bar-facilitation" style="width:97.5%"></div></div><strong id="label-facilitation">R1.17m / R1.20m</strong></div>
+            <div class="budget-line"><b>Operations</b><div class="track" role="img" aria-label="Operations estimate against budget"><div class="fill" id="bar-operations" style="width:93.8%"></div></div><strong id="label-operations">R750k / R800k</strong></div>
+            <div class="chart-key"><span><i></i>Estimate at completion</span><span><i class="budget-key"></i>Approved budget</span></div>
+          </div>
+          <div>
+            <p class="subhead">Forecast reconciliation</p>
+            <div class="table-wrap"><table><thead><tr><th>Measure</th><th>Illustrative amount</th></tr></thead><tbody><tr><td>Actuals to cut off</td><td id="recon-actuals">R3,150,000</td></tr><tr><td>Plus forecast to complete</td><td id="recon-forecast">R1,530,000</td></tr><tr><td>Estimate at completion</td><td id="recon-eac">R4,680,000</td></tr><tr><td>Approved budget</td><td>R5,000,000</td></tr><tr><td>Forecast variance</td><td id="recon-variance">R320,000 under</td></tr></tbody></table></div>
+            <p class="metric-note">Actuals enter the forecast only when the sample record is marked Ready and its payment status is Paid or Approved. Submitted or rejected entries remain outside recognized spend.</p>
+          </div>
+        </div>
+        <div style="padding:0 22px 18px"><p class="subhead">Category detail</p><div class="table-wrap"><table><thead><tr><th>Cost category</th><th>Budget</th><th>Actuals</th><th>Forecast to complete</th><th>Estimate at completion</th><th>Variance</th></tr></thead><tbody><tr><td>Training</td><td>R900,000</td><td>R580,000</td><td id="forecast-training">R230,000</td><td id="eac-training">R810,000</td><td id="variance-training">R90,000 under</td></tr><tr><td>Transport</td><td>R550,000</td><td>R350,000</td><td id="forecast-transport">R170,000</td><td id="eac-transport">R520,000</td><td id="variance-transport">R30,000 under</td></tr><tr><td>Materials</td><td>R450,000</td><td>R340,000</td><td id="forecast-materials">R90,000</td><td id="eac-materials">R430,000</td><td id="variance-materials">R20,000 under</td></tr><tr><td>Events</td><td>R1,100,000</td><td>R720,000</td><td id="forecast-events">R280,000</td><td id="eac-events">R1,000,000</td><td id="variance-events">R100,000 under</td></tr><tr><td>Facilitation</td><td>R1,200,000</td><td>R820,000</td><td id="forecast-facilitation">R350,000</td><td id="eac-facilitation">R1,170,000</td><td id="variance-facilitation">R30,000 under</td></tr><tr><td>Operations</td><td>R800,000</td><td>R340,000</td><td id="forecast-operations">R410,000</td><td id="eac-operations">R750,000</td><td id="variance-operations">R50,000 under</td></tr><tr><td>Total</td><td>R5,000,000</td><td>R3,150,000</td><td id="forecast-category-total">R1,530,000</td><td id="eac-category-total">R4,680,000</td><td id="variance-category-total">R320,000 under</td></tr></tbody></table></div><p class="caption">Illustrative figures shown in rand. Variance is budget less estimate at completion. Scenario forecast applies delivery volume and unit cost assumptions to variable costs; fixed costs remain unchanged.</p></div>
+      </div>
+    </section>
+    <section id="data-model">
+      <div class="section-head"><div><p class="kicker">02 · Data model</p><h2>Give every record a clear relationship.</h2></div><p>An illustrative relational design connects planned activity to participation, results and cost records, so reporting can be traced back to the operational detail.</p></div>
+      <div class="relationship-list" aria-label="Programme reporting data model relationships">
+        <div class="relationship"><div class="entity"><b>Programme</b><small>programme_id · budget · dates</small></div><div class="relation">one programme has many activities</div><div class="entity"><b>Activity</b><small>activity_id · programme_id · date</small></div></div>
+        <div class="relationship"><div class="entity"><b>Learner</b><small>learner_id · school_id · grade</small></div><div class="relation">many learners attend many activities</div><div class="entity"><b>Participation</b><small>learner_id · activity_id · attendance</small></div></div>
+        <div class="relationship"><div class="entity"><b>Activity</b><small>activity_id</small></div><div class="relation">one activity records many outcomes</div><div class="entity"><b>Result</b><small>result_id · activity_id · measure</small></div></div>
+        <div class="relationship"><div class="entity"><b>Activity</b><small>activity_id</small></div><div class="relation">one activity can have many transactions</div><div class="entity"><b>Cost record</b><small>transaction_id · activity_id · category</small></div></div>
+      </div>
+      <p class="model-note">The participation table resolves the many to many relationship between learners and activities. Stable IDs and clear record grain make it possible to link attendance and results without double counting.</p>
+    </section>
+    <section id="decisions">
+      <div class="section-head"><div><p class="kicker">03 · Decision report</p><h2>Turn the forecast into an action.</h2></div><p>The model supports a short management update that separates what the data shows from what the team should confirm next.</p></div>
+      <div class="decision-grid">
+        <article class="decision-card"><p class="report-meta">Illustrative management read out · synthetic figures</p><h3>What the forecast suggests</h3><p id="decision-summary">In the base scenario, estimated final spend is R4.68 million against a R5 million budget, leaving R320,000 below budget.</p><ul class="decision-list"><li id="decision-action">Confirm that the remaining activity schedule matches the delivery volume used in this scenario.</li><li>Check open commitments and pending transactions before considering any budget reallocation.</li><li>At the next review, compare delivered activity and participation with the volumes used in the forecast.</li></ul></article>
+        <article class="report-card"><div class="report-meta">Sample report excerpt · illustrative only</div><blockquote>Forecast spend remains within the approved envelope. Before reallocating the projected balance, confirm the remaining operations schedule and outstanding commitments. Update the forecast after the next delivery review.</blockquote></article>
+      </div>
+    </section>
+    <section id="formulas">
+      <div class="section-head"><div><p class="kicker">04 · Financial logic</p><h2>Show the calculations behind the result.</h2></div><p>The first three examples match the financial model workbook. The additional scenario formula shows how the controls scale remaining costs when delivery or unit cost assumptions change.</p></div>
+      <div class="formula-grid">
+        <div class="formula"><b>Recognized actuals by category</b><code>=SUMIFS('Clean Actuals'!$M$6:$M$155,'Clean Actuals'!$D$6:$D$155,A7,'Clean Actuals'!$C$6:$C$155,"&lt;="&amp;'Assumptions'!$B$5)</code><small>Adds eligible actual spend for one category up to the reporting cut off.</small></div>
+        <div class="formula"><b>Estimate at completion</b><code>=C7+E7</code><small>Actuals to cut off plus forecast to complete.</small></div>
+        <div class="formula"><b>Variance to budget</b><code>=B7-F7</code><small>Approved budget less estimate at completion.</small></div>
+        <div class="formula"><b>Scenario forecast to complete</b><code>Fixed cost + (Variable cost × delivery volume × unit cost index)</code><small>Tests how remaining activity and cost assumptions change the forecast, while leaving actuals and approved budget fixed.</small></div>
+      </div>
+      <p class="caption">The first three formulas are taken from the financial model workbook. The final formula describes the illustrative logic used by the interactive scenario.</p>
+    </section>
+    <div class="next-step"><div><h2>Explore the supporting financial model.</h2><p>Open the Excel workbook to review editable assumptions, model sheets and formulas.</p></div><a class="button" href="workbook-preview.html?workbook=financial">View workbook preview</a></div>
+  </main>
+  <footer><div class="wrap"><span>Ntando Mthimkulu · Data portfolio</span><span>Illustrative case data except stated programme scale</span></div></footer>
+  <script>
+    (() => {
+      const budget = 5000000;
+      const actuals = 3150000;
+      const categories = [
+        {key:'training',name:'Training',budget:900000,actual:580000,forecast:230000,variableShare:.9},
+        {key:'transport',name:'Transport',budget:550000,actual:350000,forecast:170000,variableShare:.95},
+        {key:'materials',name:'Materials',budget:450000,actual:340000,forecast:90000,variableShare:.85},
+        {key:'events',name:'Events',budget:1100000,actual:720000,forecast:280000,variableShare:.7},
+        {key:'facilitation',name:'Facilitation',budget:1200000,actual:820000,forecast:350000,variableShare:.8},
+        {key:'operations',name:'Operations',budget:800000,actual:340000,forecast:410000,variableShare:.4}
+      ];
+      const volumeInput = document.getElementById('delivery-volume');
+      const costInput = document.getElementById('unit-cost-index');
+      const fmt = value => 'R' + Math.round(value).toLocaleString('en-ZA');
+      const compact = value => value >= 1000000 ? 'R' + (value/1000000).toFixed(2) + 'm' : 'R' + Math.round(value/1000).toLocaleString('en-ZA') + 'k';
+      const varianceText = value => fmt(Math.abs(value)) + (value >= 0 ? ' under' : ' over');
+      const setText = (id,value) => { document.getElementById(id).textContent = value; };
+      function updateScenario() {
+        const volume = Number(volumeInput.value) / 100;
+        const unitCost = Number(costInput.value) / 100;
+        setText('delivery-output', volumeInput.value + '%');
+        setText('unit-cost-output', costInput.value + '%');
+        let forecastTotal = 0;
+        let eacTotal = 0;
+        categories.forEach(category => {
+          const variable = category.forecast * category.variableShare;
+          const fixed = category.forecast - variable;
+          const forecast = fixed + variable * volume * unitCost;
+          const eac = category.actual + forecast;
+          const variance = category.budget - eac;
+          forecastTotal += forecast;
+          eacTotal += eac;
+          setText('forecast-' + category.key, fmt(forecast));
+          setText('eac-' + category.key, fmt(eac));
+          setText('variance-' + category.key, varianceText(variance));
+          setText('label-' + category.key, compact(eac) + ' / ' + compact(category.budget));
+          const fill = document.getElementById('bar-' + category.key);
+          fill.style.width = Math.min(100, Math.max(0, eac / category.budget * 100)) + '%';
+          fill.style.background = variance < 0 ? 'var(--clay)' : 'var(--green2)';
+        });
+        const totalVariance = budget - eacTotal;
+        setText('actual-total', compact(actuals));
+        setText('forecast-total', compact(forecastTotal));
+        setText('eac-total', compact(eacTotal));
+        setText('variance-total', varianceText(totalVariance));
+        setText('variance-caption', totalVariance >= 0 ? 'Below approved budget in this scenario' : 'Above approved budget in this scenario');
+        setText('recon-actuals', fmt(actuals));
+        setText('recon-forecast', fmt(forecastTotal));
+        setText('recon-eac', fmt(eacTotal));
+        setText('recon-variance', varianceText(totalVariance));
+        setText('forecast-category-total', fmt(forecastTotal));
+        setText('eac-category-total', fmt(eacTotal));
+        setText('variance-category-total', varianceText(totalVariance));
+        let headline, advice, decision, action;
+        if (totalVariance < 0) {
+          headline = 'Scenario exceeds the approved budget by ' + compact(Math.abs(totalVariance)) + '.';
+          advice = 'Review the categories above budget, validate supplier quotes and activity volumes, then assess scope or contingency options before committing.';
+          decision = 'At the selected delivery and cost assumptions, forecast final spend is ' + compact(eacTotal) + ', which is ' + compact(Math.abs(totalVariance)) + ' above the R5.00m budget.';
+          action = 'Prioritise review of the largest over-budget categories and confirm whether price pressure or delivery volume is driving the gap.';
+        } else if (Number(volumeInput.value) < 100) {
+          headline = 'Within budget, with delivery volume below plan.';
+          advice = 'A lower forecast may reflect fewer activities. Confirm which outputs or dates would change before treating the balance as a saving.';
+          decision = 'At the selected assumptions, forecast final spend is ' + compact(eacTotal) + ', below the R5.00m budget, while delivery volume is below baseline.';
+          action = 'Validate the revised activity schedule and expected outputs before classifying the lower forecast as available budget.';
+        } else if (totalVariance < 250000) {
+          headline = 'Forecast is close to the approved budget.';
+          advice = 'Track open commitments and price changes closely; a small change in remaining delivery costs could use the available headroom.';
+          decision = 'At the selected assumptions, forecast final spend is ' + compact(eacTotal) + ', leaving limited headroom against the R5.00m budget.';
+          action = 'Review high-value commitments and refresh unit cost estimates at the next reporting cut off.';
+        } else {
+          headline = 'Scenario remains within the approved budget.';
+          advice = 'Confirm outstanding commitments and the remaining activity schedule before treating the projected balance as available.';
+          decision = 'At the selected assumptions, forecast final spend is ' + compact(eacTotal) + ' against a R5.00m budget, leaving ' + compact(totalVariance) + ' in forecast headroom.';
+          action = 'Confirm the remaining activity schedule and open commitments before considering a budget reallocation.';
+        }
+        setText('scenario-headline', headline);
+        setText('scenario-advice', advice);
+        setText('decision-summary', decision);
+        setText('decision-action', action);
+      }
+      volumeInput.addEventListener('input', updateScenario);
+      costInput.addEventListener('input', updateScenario);
+      updateScenario();
+    })();
+  </script>
+</body>
+</html>

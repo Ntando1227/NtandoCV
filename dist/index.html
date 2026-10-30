@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5f0">
+  <meta name="description" content="Digital CV and work portfolio for Ntando Mthimkulu, a project manager focused on data analysis, business intelligence, data modelling and programme reporting.">
+  <title>Ntando Mthimkulu | Data Portfolio</title>
+  <style>
+    :root{--paper:#f7f5f0;--white:#fff;--ink:#202724;--muted:#65706a;--line:#dcded8;--green:#263b36;--green2:#37544b;--clay:#a65e43;--pale:#e9eee8;--sand:#eee8dc;--shadow:0 18px 50px rgba(33,44,39,.08);--max:1120px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 Inter,Arial,sans-serif}
+    a{color:inherit}
+    a:focus-visible,button:focus-visible{outline:3px solid #d18c65;outline-offset:4px}
+    .wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:4;background:rgba(247,245,240,.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(220,222,216,.8)}
+    .nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-weight:750;letter-spacing:.02em;text-decoration:none;color:var(--green)}
+    .navlinks{display:flex;align-items:center;gap:26px}
+    .navlinks a{text-decoration:none;font-size:13px;color:var(--muted)}
+    .navlinks a:hover{color:var(--green)}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 17px;border-radius:5px;background:var(--green);color:#fff;text-decoration:none;font-size:13px;font-weight:700;transition:transform .18s,background .18s}
+    .button:hover{background:var(--green2);transform:translateY(-1px)}
+    .button.secondary{background:transparent;color:var(--green);border:1px solid #a9b3ac}
+    .button.secondary:hover{background:#edf0eb}
+    .hero{padding:86px 0 76px;position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;width:480px;height:480px;border:1px solid #ded7c9;border-radius:50%;right:-190px;top:8px;box-shadow:0 0 0 44px rgba(222,215,201,.16),0 0 0 88px rgba(222,215,201,.1);pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:1.38fr .62fr;align-items:end;gap:48px;position:relative;z-index:1}
+    .eyebrow{display:flex;align-items:center;gap:10px;color:var(--clay);font-size:11px;text-transform:uppercase;font-weight:800;letter-spacing:.16em;margin:0 0 18px}
+    .eyebrow:before{content:"";width:28px;height:1px;background:var(--clay)}
+    h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(44px,6.5vw,78px);letter-spacing:-.045em;line-height:.99;margin:0;max-width:760px}
+    .hero-role{font-size:16px;color:var(--green2);font-weight:700;margin:21px 0 0}
+    .hero-copy{max-width:670px;color:#58635d;font-size:17px;margin:17px 0 28px}
+    .actions{display:flex;flex-wrap:wrap;gap:10px}
+    .hero-note{border-left:1px solid #c8cfc7;padding:10px 0 10px 22px;color:var(--muted);font-size:13px;max-width:230px;justify-self:end;margin-bottom:10px}
+    .hero-note strong{display:block;color:var(--green);font:400 26px Georgia,serif;margin:7px 0 1px}
+    section{padding:85px 0}
+    .section-head{display:grid;grid-template-columns:.7fr 1.3fr;gap:50px;align-items:start;margin-bottom:34px}
+    .kicker{color:var(--clay);font-size:11px;text-transform:uppercase;font-weight:800;letter-spacing:.16em;margin:0 0 11px}
+    h2{font:400 clamp(32px,4vw,48px)/1.08 Georgia,serif;letter-spacing:-.025em;color:var(--green);margin:0}
+    .section-intro{color:var(--muted);max-width:620px;margin:4px 0 0}
+    .about{background:#fff}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+    .about-copy p{margin:0 0 16px;color:#59645e}
+    .skill-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+    .skill-list span{background:var(--pale);color:#34483f;font-size:12px;padding:7px 10px;border-radius:3px}
+    .profile-card{background:var(--paper);padding:26px 28px;border-radius:5px}
+    .profile-card h3{font:400 23px Georgia,serif;margin:0 0 12px;color:var(--green)}
+    .profile-card p{margin:0;color:var(--muted);font-size:14px}
+    .timeline{margin-top:22px;border-top:1px solid var(--line);padding-top:17px}
+    .timeline div{display:flex;justify-content:space-between;gap:20px;padding:8px 0;font-size:13px}
+    .timeline span{color:var(--muted);text-align:right}
+    .work{background:var(--paper)}
+    .project{display:grid;grid-template-columns:1fr 1fr;background:#fff;border:1px solid var(--line);margin:22px 0 0;box-shadow:0 7px 30px rgba(33,44,39,.035);border-radius:7px;overflow:hidden;transition:box-shadow .2s,transform .2s}
+    .project:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+    .project-copy{padding:34px}
+    .project-meta{display:flex;gap:9px;align-items:center;color:var(--clay);font-size:10px;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+    .project h3{font:400 27px/1.12 Georgia,serif;color:var(--green);margin:13px 0}
+    .project p{font-size:14px;color:var(--muted);margin:0 0 14px}
+    .project ul{margin:0;padding-left:18px;color:#45524b;font-size:13px}
+    .project li{margin:5px 0}
+    .sample{position:relative;background:linear-gradient(145deg,#f1f3ee 0%,#e9eee8 100%);border-left:4px solid var(--green2);padding:30px 34px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+    .sample-label{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#68736c;font-weight:800;margin-bottom:9px;display:flex;align-items:center}
+    .sample-label:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--clay);margin-right:8px}
+    .sample h3{font:400 28px/1.12 Georgia,serif;color:var(--green);margin:5px 0 12px}
+    .logic-title{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:#65746b;font-weight:800;margin-top:8px}
+    .logic-flow{display:grid;grid-template-columns:1fr;gap:0;list-style-type:decimal-leading-zero;list-style-position:outside;padding:0;margin:10px 0 0 25px;border-top:1px solid #d0d9d1}
+    .logic-flow li{min-height:0;display:list-item;background:transparent;border:0;border-bottom:1px solid #d0d9d1;padding:8px 2px;font-size:12px;line-height:1.35;font-weight:700;color:var(--green)}
+    .logic-flow li::marker{color:var(--clay);font-size:10px;font-weight:800}
+    .excel-pipeline{list-style:none;border:0;margin:12px 0 0;padding:0}
+    .excel-pipeline li{position:relative;display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start;min-height:43px;padding:0 0 9px;border:0}
+    .excel-pipeline li:last-child{padding-bottom:0;min-height:24px}
+    .pipeline-node{position:relative;z-index:1;display:grid;place-items:center;width:22px;height:22px;border:1px solid #a65e43;border-radius:50%;background:#fff;font-size:9px;font-weight:800;color:#89563e}
+    .excel-pipeline li:not(:last-child):after{content:"";position:absolute;left:10px;top:23px;bottom:0;width:1px;background:#b9c8bd}
+    .pipeline-copy{display:block;padding-top:1px}
+    .pipeline-copy strong{display:block;color:var(--green);font-size:11px;line-height:1.3}
+    .pipeline-copy small{display:block;color:#68736c;font-size:10px;line-height:1.35;margin-top:2px}
+    .logic-caption{font-size:12px!important;line-height:1.55;margin:13px 0 0!important;padding:11px 13px;background:rgba(255,255,255,.72);border-left:2px solid var(--clay);color:#59645e!important}
+    .decision-note{margin:12px 0 0!important;padding:10px 12px;background:#fff;border:1px solid #d7dfd8;border-radius:4px;font-size:12px!important;line-height:1.45;color:#59645e!important}
+    .decision-note strong{display:block;margin-bottom:3px;color:var(--green);font-size:9px;text-transform:uppercase;letter-spacing:.1em}
+    .comparison-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}
+    .comparison-grid figure{margin:0;min-width:0;background:#fff;border:1px solid #d7dfd8;border-radius:4px;overflow:hidden}
+    .comparison-grid img{display:block;width:100%;height:132px;object-fit:cover;object-position:top}
+    .comparison-grid figcaption{padding:6px 8px;color:#59645e;font-size:9px;line-height:1.35}
+    .model-img{width:100%;height:auto;display:block;border-radius:5px}
+    .sample-caption{font-size:11px;color:#68736c;margin:11px 0 0}
+    .table-wrap{overflow-x:auto;background:#fff;border:1px solid #e2e3de;border-radius:4px}
+    table{width:100%;border-collapse:collapse;font-size:12px;min-width:420px}
+    th,td{text-align:left;padding:12px 13px;border-bottom:1px solid #ebebe7}
+    th{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#707872;background:#f8f8f5}
+    tr:last-child td{border-bottom:0}
+    .tag{display:inline-block;background:#f5e7df;color:#89563e;padding:3px 7px;border-radius:3px;font-size:10px;font-weight:700}
+    .sql{background:#202a26;color:#e9eee9;padding:19px 20px;border-radius:5px;overflow:auto;font:12px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre;max-height:340px}
+    .download-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:18px}
+    .download-row .button{font-size:12px;padding:11px 10px;min-height:42px;text-align:center}
+    .python-metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:14px 0 2px}
+    .python-metric{background:rgba(255,255,255,.78);border:1px solid #dce1db;border-radius:4px;padding:9px 11px}
+    .python-metric b{display:block;font:20px Georgia,serif;color:var(--green)}
+    .python-metric span{display:block;margin-top:2px;font-size:9px;line-height:1.35;color:#6c766f;text-transform:uppercase;letter-spacing:.08em}
+    .formula-examples{display:grid;gap:6px;margin-top:12px}
+    .formula-example{display:grid;grid-template-columns:minmax(118px,.8fr) minmax(0,1.2fr);gap:10px;align-items:center;background:rgba(255,255,255,.76);border:1px solid #d7dfd8;border-radius:4px;padding:8px 10px}
+    .formula-example b{display:block;color:var(--green);font-size:10px;line-height:1.35}
+    .formula-example small{display:block;color:#68736c;font-size:9px;line-height:1.35;margin-top:2px}
+    .formula-example code{font:10px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;color:#263b36;overflow-wrap:anywhere}
+    .small-link{display:inline-flex;align-items:center;gap:7px;color:var(--green);text-decoration:none;font-size:12px;font-weight:750;border-bottom:1px solid #aab6ad;padding-bottom:3px}
+    .small-link:hover{color:var(--clay);border-color:var(--clay)}
+    .resume{background:#fff}
+    .resume-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px}
+    .resume h3{font:400 24px Georgia,serif;color:var(--green);margin:0 0 16px}
+    .resume-block{padding:18px 0;border-top:1px solid var(--line)}
+    .resume-block:first-of-type{border-top:0;padding-top:0}
+    .resume-block h4{font-size:14px;margin:0 0 5px;color:var(--ink)}
+    .resume-block p{font-size:13px;color:var(--muted);margin:0}
+    .resume-block ul{font-size:13px;color:#59645e;padding-left:18px;margin:10px 0 0}
+    .resume-block li{margin:5px 0}
+    .certs{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}
+    .cert{border-top:1px solid var(--line);padding:11px 0;font-size:12px;color:#4d5952}
+    .cert b{display:block;color:var(--ink);font-size:13px;margin-bottom:2px}
+    .contact{background:var(--green);color:#fff}
+    .contact .section-head{margin-bottom:28px}
+    .contact h2{color:#fff}
+    .contact .kicker{color:#f0b897}
+    .contact .section-intro{color:#d4ded7}
+    .contact-row{display:flex;align-items:center;justify-content:space-between;gap:24px;border-top:1px solid rgba(255,255,255,.23);padding-top:22px}
+    .contact-row a{color:#f3c8aa;text-decoration:none;font-size:18px}
+    .contact-row p{color:#d4ded7;font-size:12px;margin:0}
+    .story{background:#f1eee7;position:relative}
+    .story-shell{display:grid;grid-template-columns:210px minmax(0,1fr);gap:56px;align-items:start}
+    .story-rail{position:sticky;top:104px;align-self:start;padding:8px 0}
+    .story-rail-title{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);font-weight:800;margin:0 0 16px}
+    .story-meter{height:2px;background:#d5d8d1;margin:0 0 17px;overflow:hidden}
+    .story-meter span{display:block;height:100%;width:0;background:var(--clay);transition:width .45s ease}
+    .story-nav{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+    .story-nav a{display:grid;grid-template-columns:27px 1fr;gap:8px;align-items:center;padding:9px 7px;color:#737b75;text-decoration:none;font-size:12px;border-radius:4px;transition:color .2s,background .2s}
+    .story-nav a span{font:12px Georgia,serif;color:#a65e43}
+    .story-nav a[aria-current="step"],.story-nav a:hover{background:rgba(255,255,255,.72);color:var(--green)}
+    .story-chapters{min-width:0}
+    .story-chapter{min-height:390px;padding:33px 0 42px;border-bottom:1px solid #d7d7d0;display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.78fr);gap:36px;align-items:center;scroll-margin-top:100px}
+    .story-chapter:last-child{border-bottom:0}
+    .chapter-number{font:italic 15px Georgia,serif;color:var(--clay);margin:0 0 12px}
+    .story-chapter h3{font:400 clamp(26px,3vw,38px)/1.12 Georgia,serif;color:var(--green);letter-spacing:-.025em;margin:0 0 15px}
+    .story-chapter p{color:#5d6861;font-size:14px;margin:0 0 13px;max-width:520px}
+    .chapter-note{padding-top:13px;border-top:1px solid #d7d7d0;font-size:12px!important;color:#33473d!important}
+    .story-scene{min-height:225px;background:#fff;border:1px solid #e0e0d9;border-radius:6px;padding:23px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 12px 35px rgba(33,44,39,.045)}
+    .scene-label{font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#788079;font-weight:800;margin:0 0 14px}
+    .study-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+    #chapter-foundation .study-tiles{grid-template-columns:repeat(2,1fr)}
+    .study-tiles span{background:#eef1eb;padding:12px 8px;text-align:center;color:#34483f;font:13px Georgia,serif;border-radius:3px}
+    .study-result{margin-top:11px;border-top:1px solid #e3e4dd;padding-top:11px;color:#8c5941;font-size:11px;font-weight:700;text-align:center}
+    .delivery-flow{display:grid;gap:8px}
+    .delivery-flow div{display:grid;grid-template-columns:25px 1fr auto;gap:10px;align-items:center;padding:9px 10px;background:#f5f6f2;border-left:2px solid #61766b;font-size:12px;color:#34483f}
+    .delivery-flow b{font:12px Georgia,serif;color:var(--clay)}
+    .delivery-flow small{font-size:10px;color:#79827b}
+    .model-tables{display:grid;grid-template-columns:1fr 18px 1fr 18px 1fr;align-items:center;gap:4px}
+    .model-table{border:1px solid #d9ded7;border-radius:4px;overflow:hidden}
+    .model-table b{display:block;padding:7px;background:#eaf0e9;color:#33483e;font-size:10px;text-align:center}
+    .model-table span{display:flex;align-items:center;justify-content:center;gap:4px;padding:6px 4px;border-top:1px solid #eceee9;font:8px ui-monospace,monospace;color:#657169;text-align:center;white-space:nowrap}
+    .model-table span em{font:700 7px Inter,Arial,sans-serif;font-style:normal;color:#fff;background:var(--green2);border-radius:2px;padding:2px 3px}
+    .model-link{text-align:center;color:var(--clay);font-size:9px;font-weight:800;white-space:nowrap}
+    .model-caption{margin:12px 0 0!important;text-align:left;font-size:10px!important;line-height:1.5}
+    .model-legend{display:block;margin-top:7px;color:#788079;font-size:9px}
+    .formula-stack{display:grid;gap:10px}
+    .formula-row{padding:13px 15px;border-left:3px solid var(--clay);background:#f5f6f2}
+    .formula-row span{display:block;color:#788079;text-transform:uppercase;letter-spacing:.1em;font-size:9px;font-weight:800;margin-bottom:5px}
+    .formula-row strong{font:16px Georgia,serif;color:#33483e}
+    .formula-row small{display:block;margin-top:6px;color:#657169;font-size:10px;line-height:1.45}
+    .chapter-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:19px}
+    .chapter-actions a{font-size:11px}
+    html.has-motion .story-chapter{opacity:.38;transform:translateY(15px);transition:opacity .55s ease,transform .55s ease}
+    html.has-motion .story-chapter.is-visible{opacity:1;transform:none}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+    footer{padding:22px 0;background:#1d2d28;color:#b9c5bd;font-size:11px}
+    footer .wrap{display:flex;justify-content:space-between;gap:18px}
+    .mobile-toggle{display:none;background:none;border:1px solid var(--line);color:var(--green);padding:8px 10px;border-radius:4px}
+    @media(max-width:780px){.wrap{width:min(var(--max),calc(100% - 32px))}.hero{padding:64px 0}.hero-grid,.about-grid,.section-head,.project,.resume-grid{grid-template-columns:1fr;gap:0}.hero-note{justify-self:start;max-width:none;border-left:0;border-top:1px solid #c8cfc7;padding:16px 0 0;margin-top:24px}.project-copy{padding:24px}.sample{border-left:0;border-top:4px solid var(--green2);padding:24px}.nav{height:64px}.navlinks{display:none;position:absolute;top:64px;left:0;right:0;background:var(--paper);padding:16px 24px 22px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:14px}.navlinks.open{display:flex}.mobile-toggle{display:block}.nav .button{margin-left:auto;padding:10px 12px}.certs{grid-template-columns:1fr}.contact-row{align-items:flex-start;flex-direction:column}.hero:after{right:-320px}.story-shell{grid-template-columns:1fr;gap:20px}.story-rail{position:static;padding:0}.story-nav{grid-template-columns:repeat(5,minmax(0,1fr));gap:3px}.story-nav a{grid-template-columns:1fr;gap:2px;padding:8px 5px;text-align:center;font-size:9px}.story-nav a span{font-size:10px}.story-chapter{grid-template-columns:1fr;gap:18px;min-height:0;padding:30px 0}.story-scene{min-height:190px}.model-tables{grid-template-columns:1fr 12px 1fr 12px 1fr}.chapter-actions{margin-top:15px}}
+    @media(max-width:780px){.model-tables{grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr) 24px minmax(0,1fr)}}
+    @media print{.topbar,.actions,.download-row,footer{display:none}.hero,section{padding:32px 0}.project,.profile-card{box-shadow:none}.wrap{width:100%}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top">Ntando Mthimkulu</a>
+      <button class="mobile-toggle" id="menuButton" aria-label="Open navigation" aria-expanded="false">Menu</button>
+      <nav class="navlinks" id="navLinks" aria-label="Main navigation">
+        <a href="#story">My story</a><a href="#work">Work samples</a><a href="#resume">Background</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="button" href="ntando-mthimkulu-cv.pdf" download>Download CV</a>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Data analysis and programme reporting</p>
+          <h1>Making operational information useful.</h1>
+          <p class="hero-role">Project Manager · Data Analyst · Business Intelligence</p>
+          <p class="hero-copy">I organise data, build tracking systems and prepare reports that help teams understand performance and decide what to do next.</p>
+          <div class="actions"><a class="button" href="#story">Start my story</a><a class="button secondary" href="#resume">View my CV</a></div>
+        </div>
+        <aside class="hero-note"><span>Based in South Africa</span><strong>Data to decisions</strong><span>With a practical foundation in programme delivery, data modelling and reporting.</span></aside>
+      </div>
+    </section>
+    <section class="about" id="about">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">Profile</p><h2>Business context behind the data.</h2></div><p class="section-intro">My work sits between project delivery, business systems and analysis. I have prepared programme reports, contributed to proposals and built structured trackers for programme and financial information.</p></div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>I bring a Bachelor of Arts in Economics, Law and Politics and a Postgraduate Diploma in Enterprise Management from Rhodes University, alongside my background in software engineering. I work with Excel, Power Query, SharePoint and Power Platform, and have practical foundations in Python, SQL and database concepts.</p>
+            <p>In project management, I have improved how programme data is handled, processed, analysed and visualised. I use reporting and financial information to support decisions on delivery, risks and resources, and I am extending this work through financial modelling.</p>
+            <div class="skill-list"><span>Data analysis</span><span>Data modelling</span><span>SQL</span><span>Excel</span><span>Power Query</span><span>Python</span><span>Reporting</span><span>Process improvement</span></div>
+          </div>
+          <aside class="profile-card"><h3>Education and learning</h3><div class="timeline"><div><b>Bachelor of Arts</b><span>Economics, Law and Politics · Rhodes University · 2019 to 2023</span></div><div><b>Postgraduate Diploma</b><span>Enterprise Management · Rhodes University · 2024</span></div><div><b>Software Engineering</b><span>Hyperion Development · 2026</span></div><div><b>Ongoing professional learning</b><span>Udemy · Data modelling, financial modelling and ERP implementation</span></div></div><a class="button secondary" href="Hyperion Development Transcript.pdf" download="Hyperion Development Transcript.pdf">Download software engineering transcript</a></aside>
+        </div>
+      </div>
+    </section>
+    <section class="story" id="story">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">My professional story</p><h2>How I got here, and where I am going.</h2></div><p class="section-intro">My path connects the study of organisations, project management and practical data work. Each chapter shows how that experience is shaping my move into business intelligence.</p></div>
+        <div class="story-shell">
+          <aside class="story-rail" aria-label="Story chapters">
+            <p class="story-rail-title">Your place in my story</p>
+            <div class="story-meter" aria-hidden="true"><span id="storyMeter"></span></div>
+            <ol class="story-nav">
+              <li><a href="#chapter-foundation" data-story-link aria-current="step"><span>01</span>Foundation</a></li>
+              <li><a href="#chapter-delivery" data-story-link><span>02</span>Delivery</a></li>
+              <li><a href="#chapter-data" data-story-link><span>03</span>Data</a></li>
+              <li><a href="#chapter-finance" data-story-link><span>04</span>Financial logic</a></li>
+              <li><a href="#chapter-next" data-story-link><span>05</span>Business intelligence</a></li>
+            </ol>
+          </aside>
+          <div class="story-chapters">
+            <article class="story-chapter is-visible" id="chapter-foundation" data-story-chapter>
+              <div><p class="chapter-number">Chapter 01 · My foundation</p><h3>My learning brings business, software engineering and data modelling together.</h3><p>I began with a Bachelor of Arts in Economics, Law and Politics at Rhodes University. Studying organisations through economic, legal and political perspectives shaped how I understand decisions and their wider context. My Postgraduate Diploma in Enterprise Management, also at Rhodes, connected that foundation to how organisations are run.</p><p>In 2026, I studied Software Engineering at Hyperion Development. It added a technical perspective through programming and software development, complementing my business studies and my interest in business intelligence.</p><p>I continue to build on this foundation through Udemy learning in data modelling and related areas, including financial modelling and ERP implementation. This helps me connect business questions to the way data and systems are structured.</p><p class="chapter-note">Rhodes University · BA, 2019 to 2023 · PGDip, 2024 · Hyperion Development · Software Engineering, 2026 · Udemy · ongoing learning</p></div>
+              <div class="story-scene" aria-label="Economics, law, politics and enterprise management connect with software engineering"><p class="scene-label">Business and technical perspectives</p><div class="study-tiles"><span>Economics</span><span>Law</span><span>Politics</span><span>Enterprise Management</span><span>Software Engineering</span></div><div class="study-result">Understanding organisations and the systems that support them</div></div>
+            </article>
+            <article class="story-chapter" id="chapter-delivery" data-story-chapter>
+              <div><p class="chapter-number">Chapter 02 · My delivery experience</p><h3>I oversee programme delivery and reporting for a programme budgeted at R9 million.</h3><p>Over three years as Project Manager at enke: Make Your Mark, I managed an annual programme budget of R3 million, or R9 million across the full three year period. I write reports and contribute to proposals, bringing together delivery plans, progress, risks and costs to inform project decisions.</p><p class="chapter-note">I have also improved how programme information is organised and processed, making it more useful for analysis and reporting.</p></div>
+              <div class="story-scene" aria-label="Project delivery sequence from planning through reporting and improvement"><p class="scene-label">The delivery rhythm I work with</p><div class="delivery-flow"><div><b>01</b><strong>Plan delivery</strong><small>scope · dates</small></div><div><b>02</b><strong>Align people and inputs</strong><small>owners · dependencies</small></div><div><b>03</b><strong>Monitor progress</strong><small>status · evidence</small></div><div><b>04</b><strong>Report and adapt</strong><small>findings · actions</small></div></div></div>
+            </article>
+            <article class="story-chapter" id="chapter-data" data-story-chapter>
+              <div><p class="chapter-number">Chapter 03 · My analytical work</p><h3>I improve data handling, processing, analysis and visualisation.</h3><p>In programme work, I have improved how information is structured, cleaned and prepared for analysis. I use Excel and Power Query to process records, model relationships between data and create clearer reporting views. I have used these insights and visual summaries to support decisions in project management.</p><p class="chapter-note">My portfolio demonstrates this approach through Excel, SQL and a Python example using synthetic sales data.</p></div>
+              <div class="story-scene" aria-label="Programme, activity and result records connected through primary and foreign keys"><p class="scene-label">How I structure programme data</p><div class="model-tables"><div class="model-table"><b>PROGRAMME</b><span><em>PK</em> programme_id</span><span>programme_name</span></div><div class="model-link" aria-hidden="true">1:N</div><div class="model-table"><b>ACTIVITY</b><span><em>PK</em> activity_id</span><span><em>FK</em> programme_id</span></div><div class="model-link" aria-hidden="true">1:N</div><div class="model-table"><b>RESULT</b><span><em>PK</em> result_id</span><span><em>FK</em> activity_id</span><span>indicator · value</span></div></div><p class="model-caption">One programme can contain many activities, and each activity can link to multiple result records. Primary keys identify records; foreign keys preserve the relationships so reporting can group results by programme without repeating programme details.<span class="model-legend">PK = primary key · FK = foreign key · 1:N = one to many</span></p></div>
+            </article>
+            <article class="story-chapter" id="chapter-finance" data-story-chapter>
+              <div><p class="chapter-number">Chapter 04 · My financial modelling</p><h3>I connect operational drivers to financial forecasts.</h3><p>I am developing financial models that link delivery plans to costs. Volumes, unit rates, timing and scenarios show how changes in assumptions affect the forecast and expected spend.</p><p class="chapter-note">My financial workbook brings assumptions, activity plans, actuals and forecast outputs together.</p></div>
+              <div class="story-scene" aria-label="Three steps showing the financial forecast logic"><p class="scene-label">How the forecast is built</p><div class="formula-stack"><div class="formula-row"><span>Forecast to complete</span><strong>Remaining activity volume × unit rate</strong><small>Estimate future cost from the work still planned and its cost per activity.</small></div><div class="formula-row"><span>Estimate at completion</span><strong>Eligible actuals to date + forecast to complete</strong><small>Combine recognized spend through the reporting cut off with the cost still expected.</small></div><div class="formula-row"><span>Budget position</span><strong>Approved budget − estimate at completion</strong><small>Positive means forecast headroom. Negative signals a potential overspend to review.</small></div></div></div>
+            </article>
+            <article class="story-chapter" id="chapter-next" data-story-chapter>
+              <div><p class="chapter-number">Chapter 05 · My direction</p><h3>Business intelligence is where I am taking this work.</h3><p>I have already worked on improving data handling, processing, analytics and visualisation. In project management, I have used information to support decisions about delivery, risks and finances. I am building on that experience through financial modelling and practical BI work, with a clear focus on a career in business intelligence.</p><div class="chapter-actions"><a class="button" href="#work">Explore my work</a><a class="button secondary" href="ntando-mthimkulu-cv.pdf" download>Download my CV</a></div></div>
+              <div class="story-scene" aria-label="Portfolio examples in project management, data cleaning, financial modelling and business intelligence"><p class="scene-label">A closer look at my work</p><div class="delivery-flow"><div><b>01</b><strong>Project process management</strong><small>delivery logic</small></div><div><b>02</b><strong>Sales data cleaning</strong><small>quality and SQL</small></div><div><b>03</b><strong>Moya Trail Gear model</strong><small>three statements and drivers</small></div></div></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="work" id="work">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">Selected work</p><h2>Examples of how I work.</h2></div><p class="section-intro">Explore my Excel workbooks, Python pipeline, software engineering capstone and live website development sample. Sample records and case study figures are illustrative.</p></div>
+
+        <article class="project">
+          <div class="project-copy"><div class="project-meta">01 · Project and process management</div><h3>Project process management workbook</h3><p>A practical set of project controls for planning delivery, tracking actions and reviewing process responsibilities.</p><ul><li>Overview dashboard for activity, completion and risks</li><li>Process register with inputs, outputs, controls and review frequency</li><li>Action tracker with owners, dependencies, dates and status dropdowns</li><li>Risks and issues log with response actions</li></ul></div>
+          <div class="sample"><div class="sample-label">Excel workbook · editable</div><h3>Delivery management</h3><div class="logic-title">Illustrative logic pipeline</div><ol class="excel-pipeline"><li><span class="pipeline-node">01</span><span class="pipeline-copy"><strong>Set up the process</strong><small>Define gates, owners and delivery stages</small></span></li><li><span class="pipeline-node">02</span><span class="pipeline-copy"><strong>Connect the work</strong><small>Link actions to dates and predecessors</small></span></li><li><span class="pipeline-node">03</span><span class="pipeline-copy"><strong>Check delivery health</strong><small>Flag blocked work, overdue actions and gate status</small></span></li><li><span class="pipeline-node">04</span><span class="pipeline-copy"><strong>Summarise progress and risk</strong><small>Weight completion by effort and calculate exposure</small></span></li></ol><p class="logic-caption">The dashboard uses the action and risk records to show what is ready, what is delayed and where a response is needed.</p><p class="decision-note"><strong>What this helps decide</strong>Which actions need follow up, which delays should be escalated and where the team should focus next.</p><div class="download-row"><a class="button secondary" href="workbook-preview.html?workbook=process" target="_blank" rel="noopener">View workbook</a><a class="button" href="samples/Project Process Management Workbook.xlsx" download="Project Process Management Workbook.xlsx">Download workbook</a></div></div>
+        </article>
+
+        <article class="project">
+          <div class="project-copy"><div class="project-meta">02 · Data cleaning and SQL</div><h3>Sales data cleaning project</h3><p>An Excel data preparation exercise using 240 deliberately inconsistent synthetic sales records and equivalent SQL examples.</p><ul><li>Raw source tab preserves mixed casing, formats, missing values and duplicates</li><li>Standardized fields and parsed amount staging</li><li>Duplicate, missing, invalid and unmapped value checks</li><li>Exception queue, SQL patterns, field definitions and quality summary</li></ul></div>
+          <div class="sample"><div class="sample-label">Excel workbook · 240 synthetic sales records</div><h3>Clean, validate, review</h3><div class="logic-title">Illustrative logic pipeline</div><ol class="excel-pipeline"><li><span class="pipeline-node">01</span><span class="pipeline-copy"><strong>Preserve the raw source</strong><small>Keep source rows unchanged for traceability</small></span></li><li><span class="pipeline-node">02</span><span class="pipeline-copy"><strong>Standardise fields</strong><small>Normalize labels and parse dates, quantities and amounts</small></span></li><li><span class="pipeline-node">03</span><span class="pipeline-copy"><strong>Run quality checks</strong><small>Identify duplicates, blanks, invalid values and unmapped labels</small></span></li><li><span class="pipeline-node">04</span><span class="pipeline-copy"><strong>Separate ready and review rows</strong><small>Pass qualified records forward and retain exceptions</small></span></li></ol><div class="logic-title">Before and after · raw rows to controlled staging</div><div class="comparison-grid"><figure><img src="workbook-previews/images/cleaning-raw-sales.png" alt="Synthetic sales rows before standardisation, with inconsistent labels and formats" loading="lazy"><figcaption>Before · mixed labels, formats and source values</figcaption></figure><figure><img src="workbook-previews/images/cleaning-cleaned-sales.png" alt="Synthetic sales rows after standardisation, with quality flags for review" loading="lazy"><figcaption>After · standardised fields with exceptions flagged</figcaption></figure></div><p class="logic-caption">Only unique rows with valid dates, amounts, quantities and mapped values enter qualified sales totals. Every rejected row remains visible with its issue flags.</p><p class="decision-note"><strong>What this helps decide</strong>Which sales records are ready for reporting and which need correction or investigation first.</p><div class="download-row"><a class="button secondary" href="workbook-preview.html?workbook=cleaning" target="_blank" rel="noopener">View workbook</a><a class="button" href="samples/Sales Data Cleaning SQL Project.xlsx" download="Sales Data Cleaning SQL Project.xlsx">Download workbook</a></div></div>
+        </article>
+
+        <article class="project">
+          <div class="project-copy"><div class="project-meta">03 · Financial modelling</div><h3>Moya Trail Gear three-statement model</h3><p>I built an integrated monthly model for a fictional South African outdoor retailer. It combines three months of actual results with a nine-month forecast for 2026.</p><ul><li>Preserved raw journal entries alongside standardized entries and an opening trial balance</li><li>Forecast revenue, cost of sales, expenses, tax and net income</li><li>Linked working capital, equipment and debt schedules to the three statements</li><li>Drivers for sales growth, cash and credit mix, inventory cover, operating costs and borrowing</li><li>Monthly balance sheet, cash flow and schedule checks</li></ul></div>
+          <div class="sample"><div class="sample-label">My Excel model · fictional practice data</div><h3>Moya Trail Gear · 2026</h3><div class="logic-title">How the model flows</div><ol class="excel-pipeline"><li><span class="pipeline-node">01</span><span class="pipeline-copy"><strong>Prepare the source</strong><small>Retain raw entries, standardize accounts and reconcile opening balances</small></span></li><li><span class="pipeline-node">02</span><span class="pipeline-copy"><strong>Set forecast drivers</strong><small>Change growth, sales mix, cost rates and operating assumptions</small></span></li><li><span class="pipeline-node">03</span><span class="pipeline-copy"><strong>Build supporting schedules</strong><small>Calculate collections, inventory, supplier payments, equipment and debt</small></span></li><li><span class="pipeline-node">04</span><span class="pipeline-copy"><strong>Link and check the statements</strong><small>Connect income, balance sheet and cash flow, then review reconciliations</small></span></li></ol><div class="logic-title">Illustrative model outputs · 2026</div><div class="python-metrics"><div class="python-metric"><b>R992,022</b><span>Full-year revenue</span></div><div class="python-metric"><b>R130,577</b><span>Full-year net income</span></div><div class="python-metric"><b>R133,923</b><span>December cash</span></div><div class="python-metric"><b>PASS</b><span>Monthly model checks</span></div></div><div class="logic-title">Selected formulas from the workbook</div><div class="formula-examples" aria-label="Examples of formulas in the Moya Trail Gear model"><div class="formula-example"><span><b>Income Statement · E5</b><small>Forecast revenue from growth</small></span><code>=D5*(1+Assumptions!B4)</code></div><div class="formula-example"><span><b>Income Statement · E6</b><small>Cost of sales from revenue</small></span><code>=E5*Assumptions!B7</code></div><div class="formula-example"><span><b>Cash Flow · E23</b><small>Closing cash</small></span><code>=E22+E21</code></div><div class="formula-example"><span><b>Balance Sheet · E23</b><small>Assets less liabilities and equity</small></span><code>=E11-E22</code></div></div><p class="logic-caption">Forecast drivers include 8%, 5% and 3% monthly growth phases, a 42% cost-of-sales rate, 60% cash sales, 40% credit sales and 1.5 months of inventory cover. The figures are fictional practice results.</p><p class="decision-note"><strong>What this helps decide</strong>How sales, costs, working capital and investment assumptions affect profit, borrowing and cash through the year.</p><div class="download-row"><a class="button secondary" href="workbook-preview.html?workbook=financial" target="_blank" rel="noopener">View workbook</a><a class="button" href="samples/Moya Trail Gear Three Statement Model.xlsx" download="Moya Trail Gear Three Statement Model.xlsx">Download workbook</a></div></div>
+        </article>
+
+        <article class="project">
+          <div class="project-copy"><div class="project-meta">04 · Python data preparation · synthetic data</div><h3>Python sales data quality pipeline</h3><p>A small pandas example that prepares inconsistent sales records for analysis and keeps rejected rows visible for review.</p><ul><li>Reads a raw CSV without overwriting the source</li><li>Standardises IDs, customer names, regions and product names</li><li>Parses mixed dates, quantities and Rand amounts</li><li>Separates qualified records from rows with issue flags</li></ul></div>
+          <div class="sample"><div class="sample-label">Python · pandas · illustrative project</div><h3>Prepare, validate, review</h3><div class="logic-title">What the run produced</div><div class="python-metrics"><div class="python-metric"><b>22</b><span>Raw rows</span></div><div class="python-metric"><b>12</b><span>Qualified</span></div><div class="python-metric"><b>10</b><span>Flagged for review</span></div><div class="python-metric"><b>R25,535.50</b><span>Qualified sample total</span></div></div><p class="logic-caption">The script records its rules, preserves the raw file, and exports a clean dataset, exception list and quality summary. All sales records are synthetic.</p><p class="logic-caption">Process: raw CSV → standardise fields → validate records → export qualified data and exceptions.</p><p class="decision-note"><strong>What this helps decide</strong>Whether a new source file is reliable enough to analyse, or needs data owner review before use.</p><div class="download-row"><a class="button secondary" href="samples/python_sales_pipeline/clean_sales_data.py" target="_blank" rel="noopener">View Python script</a><a class="button" href="samples/python_sales_quality_pipeline.zip" download>Download project</a></div><p class="sample-caption"><a class="small-link" href="samples/python_sales_pipeline/README.md" target="_blank" rel="noopener">Read the project guide</a></p></div>
+        </article>
+
+        <article class="project">
+          <div class="project-copy"><div class="project-meta">05 · Integrated business intelligence case study</div><h3>Programme performance and decision support</h3><p>One connected case study bringing together a programme dashboard, relational data model, financial forecast and concise management report.</p><ul><li>Compare budget, eligible actuals, forecast to complete and variance</li><li>Connect programme, activity, learner, participation, result and cost records</li><li>Trace the formulas behind estimate at completion and budget variance</li><li>Turn the forecast into specific actions for a programme review</li></ul></div>
+          <div class="sample"><div class="sample-label">Integrated case study · illustrative figures</div><h3>From records to decisions</h3><div class="logic-title">What the case brings together</div><ol class="excel-pipeline"><li><span class="pipeline-node">01</span><span class="pipeline-copy"><strong>Monitor performance</strong><small>Budget, actuals, forecast and variance</small></span></li><li><span class="pipeline-node">02</span><span class="pipeline-copy"><strong>Structure the information</strong><small>Link activities, participation, results and costs</small></span></li><li><span class="pipeline-node">03</span><span class="pipeline-copy"><strong>Explain the result</strong><small>Show model formulas and assumptions</small></span></li><li><span class="pipeline-node">04</span><span class="pipeline-copy"><strong>Recommend a next step</strong><small>Summarise decisions for programme management</small></span></li></ol><p class="logic-caption">The programme scale reflects my experience. All category splits, transaction values and performance results on the case study page are synthetic.</p><p class="decision-note"><strong>What this helps decide</strong>When to adjust delivery pace, reallocate resources or investigate a budget variance.</p><div class="download-row"><a class="button" href="programme-performance-case-study.html">View case study</a></div></div>
+        </article>
+
+        <article class="project">
+          <div class="project-copy"><div class="project-meta">06 · Website development</div><h3>Mthimkulu Consultants website</h3><p>A live website sample showcasing my website development work for Mthimkulu Consultants.</p><ul><li>Public-facing website hosted on Render</li><li>Open the live site to explore the finished project</li></ul></div>
+          <div class="sample"><div class="sample-label">Live website · Render</div><h3>See the website in use</h3><p class="logic-caption">Visit the Mthimkulu Consultants site to review this web development sample.</p><div class="download-row"><a class="button" href="https://mthimkulu-consultants-1.onrender.com/" target="_blank" rel="noopener noreferrer">Visit live website</a></div></div>
+        </article>
+
+        <article class="project">
+          <div class="project-copy"><div class="project-meta">07 · Software engineering capstone · Hyperion Development</div><h3>The Newsroom</h3><p>My capstone project for Hyperion Development’s Software Engineering programme: an interactive workspace for exploring a newsroom and newsletter workflow.</p><ul><li>Brings articles, newsletters, publications and followed sources into one workspace</li><li>Includes a role preview for reader, journalist and editor perspectives</li><li>Shows how I apply software engineering to build a complete, interactive web application</li></ul></div>
+          <div class="sample"><div class="sample-label">Software engineering · capstone project</div><h3>An editorial workspace</h3><p class="logic-caption">The Newsroom brings reading, source discovery and newsletter publishing into a shared interface, with sections for stories, publications and updates.</p><p class="decision-note"><strong>What this demonstrates</strong>Turning a product idea into a navigable web application with connected views and interactive role previews.</p><div class="download-row"><a class="button" href="https://capstone-newsletter.onrender.com/" target="_blank" rel="noopener noreferrer">Explore The Newsroom</a></div></div>
+        </article>
+
+      </div>
+    </section>
+    <section class="resume" id="resume">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">Experience and qualifications</p><h2>Professional background.</h2></div><p class="section-intro">A concise overview of my current role, education and technical development. Download the full CV from the button at the top of the page.</p></div>
+        <div class="resume-grid">
+          <div><h3>Experience</h3><div class="resume-block"><h4>Project Manager · enke: Make Your Mark</h4><p>Manage programme planning, delivery and reporting for a programme with an annual budget of R3 million, totalling R9 million over three years.</p><ul><li>Improve programme data handling and processing through structured trackers, consistent fields and data quality checks</li><li>Analyse programme and financial information, and prepare visual reporting to support project decisions</li><li>Prepare programme reports and contribute to proposal writing</li><li>Track costs, risks, planned activities and actual delivery</li></ul></div><div class="resume-block"><h4>Core strengths</h4><p>Business intelligence, project decision support, data analysis, data visualisation, financial tracking, process improvement and stakeholder communication.</p></div><div class="resume-block"><h4>Technical skills</h4><p>Excel, Power Query, data modelling, SQL fundamentals and Python foundations, including pandas based CSV preparation and data quality checks. Developing financial modelling skills.</p></div></div>
+          <div><h3>Professional development</h3><div class="certs"><div class="cert"><b>Power Platform</b>Microsoft Power Platform Associate and PL 900 Fundamentals</div><div class="cert"><b>Business intelligence</b>Microsoft Power BI for Business Intelligence</div><div class="cert"><b>Data analysis</b>Business Intelligence, Data Analysis and Reporting · Coursera</div><div class="cert"><b>Business intelligence certification</b>Certified Business Intelligence Professional · Google and Coursera</div><div class="cert"><b>Business analysis</b>Financial Statement Analysis and Investment Appraisal · Coursera</div><div class="cert"><b>Project management</b>Project Management Support Certificate · IBM</div><div class="cert"><b>Agile delivery</b>Scrum Master Specialisation · SkillUp EdTech</div><div class="cert"><b>Systems</b>Managing ERP Implementation · Udemy</div><div class="cert"><b>Software engineering</b>Hyperion Development · Python and SQL</div></div></div>
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <div class="wrap"><div class="section-head"><div><p class="kicker">Contact</p><h2>Let us talk about data and delivery.</h2></div><p class="section-intro">For opportunities in data analysis, business intelligence, programme reporting and project coordination, contact me by email.</p></div><div class="contact-row"><a href="mailto:ntandostb@gmail.com">ntandostb@gmail.com</a><p>Johannesburg, South Africa</p></div></div>
+    </section>
+  </main>
+  <footer><div class="wrap"><span>Ntando Mthimkulu · Data portfolio</span><span>Sample financial figures are illustrative</span></div></footer>
+  <script>
+    const menuButton=document.getElementById('menuButton');
+    const navLinks=document.getElementById('navLinks');
+    menuButton.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Close navigation':'Open navigation')});
+    navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuButton.setAttribute('aria-expanded','false')}));
+    const storyChapters=[...document.querySelectorAll('[data-story-chapter]')];
+    const storyLinks=[...document.querySelectorAll('[data-story-link]')];
+    const storyMeter=document.getElementById('storyMeter');
+    if('IntersectionObserver' in window){
+      if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('has-motion');
+      const storyObserver=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(!entry.isIntersecting)return;
+          entry.target.classList.add('is-visible');
+          const index=storyChapters.indexOf(entry.target);
+          storyLinks.forEach((link,i)=>{if(i===index)link.setAttribute('aria-current','step');else link.removeAttribute('aria-current')});
+          storyMeter.style.width=((index+1)/storyChapters.length*100)+'%';
+        });
+      },{threshold:.48});
+      storyChapters.forEach(chapter=>storyObserver.observe(chapter));
+    }else{
+      storyChapters.forEach(chapter=>chapter.classList.add('is-visible'));
+      storyMeter.style.width='100%';
+    }
+  </script>
+</body>
+</html>

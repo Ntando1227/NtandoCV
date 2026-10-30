@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5f0">
+  <title>Workbook Preview | Ntando Mthimkulu</title>
+  <style>
+    :root{--paper:#f7f5f0;--white:#fff;--ink:#202724;--muted:#65706a;--line:#dcded8;--green:#263b36;--green2:#37544b;--clay:#a65e43;--pale:#e9eee8;--shadow:0 14px 38px rgba(33,44,39,.08);--max:1120px}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 Inter,Arial,sans-serif}a{color:inherit}a:focus-visible{outline:3px solid #d18c65;outline-offset:4px}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+    header{position:sticky;top:0;z-index:2;background:rgba(247,245,240,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{height:66px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-weight:750;text-decoration:none;color:var(--green)}.nav-actions{display:flex;gap:9px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;justify-content:center;padding:10px 15px;border:1px solid #a9b3ac;border-radius:5px;background:transparent;color:var(--green);text-decoration:none;font-size:12px;font-weight:750}.button.primary{background:var(--green);border-color:var(--green);color:#fff}.button:hover{background:var(--green2);border-color:var(--green2);color:#fff}
+    main{padding:52px 0 80px}.eyebrow{color:var(--clay);font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:800;margin:0 0 10px}h1{font:400 clamp(34px,5vw,54px)/1.08 Georgia,serif;letter-spacing:-.03em;color:var(--green);margin:0}.intro{max-width:760px;color:var(--muted);margin:15px 0 28px}.note{max-width:850px;background:#fff;border-left:3px solid var(--clay);padding:12px 16px;color:#58635d;font-size:13px;margin:0 0 36px}.sheet{margin:34px 0 0;background:#fff;border:1px solid var(--line);border-radius:7px;overflow:hidden;box-shadow:var(--shadow)}.sheet-head{display:flex;align-items:baseline;justify-content:space-between;gap:15px;padding:16px 20px;border-bottom:1px solid var(--line)}.sheet-head h2{font:400 21px Georgia,serif;color:var(--green);margin:0}.sheet-head span{font-size:11px;color:var(--muted)}.sheet img{display:block;width:100%;height:auto;background:#fff}.error{display:none;color:#7b3f28;background:#fff;padding:16px;border:1px solid var(--line);border-radius:5px}
+    footer{padding:22px 0;background:#1d2d28;color:#b9c5bd;font-size:11px}footer .wrap{display:flex;justify-content:space-between;gap:16px}
+    @media(max-width:650px){.wrap{width:calc(100% - 28px)}.nav{height:auto;min-height:66px;padding:10px 0;align-items:flex-start;flex-direction:column}.nav-actions{width:100%}.button{flex:1}main{padding-top:38px}.sheet-head{align-items:flex-start;flex-direction:column;gap:2px}footer .wrap{flex-direction:column}}
+    @media print{header,.nav-actions,footer{display:none}main{padding:0}.wrap{width:100%}.sheet{box-shadow:none;break-inside:avoid}}
+  </style>
+</head>
+<body>
+  <header><div class="wrap nav"><a class="brand" href="index.html#work">Ntando Mthimkulu · Portfolio</a><div class="nav-actions"><a class="button" href="index.html#work">Back to work samples</a><a class="button primary" id="download" href="#" download>Download workbook</a></div></div></header>
+  <main class="wrap">
+    <p class="eyebrow">Workbook preview</p>
+    <h1 id="title">Loading workbook preview</h1>
+    <p class="intro" id="intro"></p>
+    <p class="note">These are read-only worksheet previews. Download the Excel workbook to inspect formulas and edit the model.</p>
+    <p class="error" id="error">This workbook preview could not be found. Return to the portfolio and choose another sample.</p>
+    <div id="sheets"></div>
+  </main>
+  <footer><div class="wrap"><span>Ntando Mthimkulu · Data portfolio</span><span>Sample records and financial assumptions are illustrative</span></div></footer>
+  <script>
+    const books={
+      process:{title:'Project process management workbook',file:'samples/Project Process Management Workbook.xlsx',intro:'A preview of the process gates, dependency-aware action tracker, effort-weighted progress and risk controls.',sheets:[['Overview','images/process-overview.png'],['Process Register','images/process-register.png'],['Action Tracker','images/process-action-tracker.png'],['Risks and Issues','images/process-risks-issues.png'],['Read Me','images/process-guide.png']]},
+      cleaning:{title:'Sales data cleaning and SQL project',file:'samples/Sales Data Cleaning SQL Project.xlsx',intro:'A preview of 240 synthetic source rows, cleaned staging output, row-level quality controls, SQL patterns and data dictionary.',sheets:[['Summary','images/cleaning-summary.png'],['Raw Sales','images/cleaning-raw-sales.png'],['Cleaned Sales','images/cleaning-cleaned-sales.png'],['SQL Examples','images/cleaning-sql-examples.png'],['Data Dictionary','images/cleaning-data-dictionary.png']]},
+      financial:{title:'Moya Trail Gear three-statement model',file:'samples/Moya Trail Gear Three Statement Model.xlsx',intro:'My integrated monthly practice model. It links actuals for January to March with a forecast for April to December 2026. The fictional model reports R992,022 full-year revenue, R130,577 net income and R133,923 December cash, with monthly checks passing.',sheets:[['Forecast Assumptions · Apr to Jun','images/moya-assumptions.jpg'],['Forecast Assumptions · Jul to Dec','images/moya-assumptions-jul-dec.jpg'],['Integrated Income Statement','images/moya-income-statement.jpg'],['Integrated Balance Sheet','images/moya-balance-sheet.jpg'],['Integrated Cash Flow Statement','images/moya-cash-flow.jpg'],['Working Capital Schedule','images/moya-working-capital.jpg'],['PP&E and Debt Schedules','images/moya-ppe-debt.jpg'],['Model Checks','images/moya-model-checks.jpg']]}
+    };
+    const key=new URLSearchParams(location.search).get('workbook'),book=books[key];
+    if(!book){document.getElementById('error').style.display='block';document.getElementById('title').textContent='Preview unavailable'}
+    else{
+      document.title=`${book.title} | Workbook Preview`;
+      document.getElementById('title').textContent=book.title;
+      document.getElementById('intro').textContent=book.intro;
+      document.getElementById('download').href=book.file;document.getElementById('download').download=book.file.split('/').pop();
+      const root=document.getElementById('sheets');
+      for(const [name,src] of book.sheets){
+        const section=document.createElement('section');section.className='sheet';
+        const head=document.createElement('div');head.className='sheet-head';
+        const h=document.createElement('h2');h.textContent=name;
+        const label=document.createElement('span');label.textContent='Worksheet preview';head.append(h,label);
+        const img=document.createElement('img');img.src=`workbook-previews/${src}`;img.alt=`${name} sheet preview from ${book.title}`;img.loading='lazy';
+        section.append(head,img);root.append(section);
+      }
+    }
+  </script>
+</body>
+</html>

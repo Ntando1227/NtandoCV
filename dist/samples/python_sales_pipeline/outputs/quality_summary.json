@@ -1,0 +1,25 @@
+{
+  "source_file": "sales_raw.csv",
+  "raw_rows": 22,
+  "accepted_rows": 12,
+  "exception_rows": 10,
+  "duplicate_id_rows": 2,
+  "issue_counts": {
+    "duplicate_transaction_id": 2,
+    "invalid_amount": 2,
+    "invalid_order_date": 1,
+    "invalid_quantity": 2,
+    "missing_customer": 1,
+    "missing_transaction_id": 1,
+    "unmapped_region": 1
+  },
+  "accepted_sales_total_zar": 25535.5,
+  "quality_rules": [
+    "Transaction ID must be present and unique",
+    "Order date must be parseable",
+    "Customer must be present",
+    "Region must map to a known region",
+    "Quantity must be a positive number",
+    "Amount must be a valid non-negative number"
+  ]
+}

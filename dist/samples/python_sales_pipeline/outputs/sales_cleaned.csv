@@ -1,0 +1,13 @@
+source_row,transaction_id,order_date,customer,region,product,quantity,sales_amount_zar
+2,SA-1001,2026-06-01,Ndlovu Traders,Gauteng,Office Supplies,2,1250.0
+3,SA-1002,2026-06-02,Kopano Retail,Gauteng,Stationery,10,750.0
+4,SA-1003,2026-06-03,Marula Market,Limpopo,Office Supplies,3,1890.0
+5,SA-1004,2026-06-04,Mzansi Stationers,Gauteng,Stationery,6,675.0
+8,SA-1007,2026-06-06,Ndlovu Traders,Gauteng,Office Supplies,4,1000.0
+14,SA-1013,2026-06-12,Mzansi Stationers,Limpopo,Furniture,1,3200.0
+17,SA-1016,2026-06-15,Kopano Retail,Gauteng,Office Supplies,7,1715.0
+19,SA-1018,2026-06-17,Ndlovu Traders,Gauteng,Office Supplies,5,1825.0
+20,SA-1019,2026-06-18,Marula Market,Limpopo,Furniture,2,6400.0
+21,SA-1020,2026-06-19,Kopano Retail,Gauteng,Stationery,8,2100.5
+22,SA-1021,2026-06-20,Mzansi Stationers,Limpopo,Office Supplies,4,980.0
+23,SA-1022,2026-06-21,Tshwane Office,Gauteng,Furniture,1,3750.0
